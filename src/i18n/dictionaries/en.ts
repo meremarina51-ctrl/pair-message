@@ -144,6 +144,7 @@ export const en: Dictionary = {
       },
     },
   },
+  widget: { open: "Contact us", close: "Close", call: "Call us" },
   footer: {
     disclaimer:
       "© {year}. The catalog does not provide intimate services. By visiting the salons listed in the catalog, you agree to the rules of the individual establishment.",

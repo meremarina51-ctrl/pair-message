@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { FloatingContact } from "@/components/FloatingContact";
 import { Footer } from "@/components/Footer";
 import { Girls } from "@/components/Girls";
 import { Hero } from "@/components/Hero";
@@ -22,6 +23,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Salons locale={lang} dict={dict} />
       </main>
       <Footer dict={dict} />
+      <FloatingContact labels={dict.widget} />
     </>
   );
 }

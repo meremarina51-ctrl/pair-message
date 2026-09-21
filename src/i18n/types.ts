@@ -64,6 +64,7 @@ export type Dictionary = {
     interior: string;
     items: Record<SalonId, { body: string; address: string; metro: string }>;
   };
+  widget: { open: string; close: string; call: string };
   footer: {
     /** "{year}" is the current year. */
     disclaimer: string;

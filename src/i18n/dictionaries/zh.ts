@@ -141,6 +141,7 @@ export const zh: Dictionary = {
       },
     },
   },
+  widget: { open: "联系我们", close: "关闭", call: "致电" },
   footer: {
     disclaimer:
       "© {year}。本目录不提供任何亲密性质的服务。访问目录中的沙龙，即表示您同意各场所的具体规则。",
