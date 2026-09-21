@@ -491,6 +491,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lucide/icons@^1.47.0":
+  version "1.47.0"
+  resolved "https://registry.yarnpkg.com/@lucide/icons/-/icons-1.47.0.tgz#d7f32c3709869944d2a246be0cf535bfb49d024b"
+  integrity sha512-Ci+6G1KOJ71Tk2Dx8wxPOWUevfVYfcZec9r7xDucecg/iZ55Y9/KTlW1UgJ3ZULUVfddVNsKaYXR9yNZ9r6n4Q==
+
 "@napi-rs/wasm-runtime@^1.1.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@napi-rs/wasm-runtime/-/wasm-runtime-1.2.4.tgz#ae38d9ea8483942054c5d82f00c0163374cd1e5f"
