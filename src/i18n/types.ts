@@ -2,7 +2,9 @@ import type { GirlId } from "@/data/girls";
 import type { ProgramId } from "@/data/programs";
 import type { SalonId } from "@/data/salons";
 
-export type NavKey = "programs" | "girls" | "salons" | "book";
+export type NavKey = "programs" | "girls" | "salons" | "vacancies" | "book";
+
+export type ApplicationField = "name" | "phone" | "email" | "role" | "about" | "consent";
 
 export type Dictionary = {
   meta: { title: string; description: string };
@@ -25,16 +27,13 @@ export type Dictionary = {
   };
   programs: {
     label: string;
-    /** "{n}" is the number of minutes. */
     minutes: string;
     items: Record<
       ProgramId,
       {
         title: string;
         description: string;
-        /** How many girls take part, e.g. "2 girls". */
         girls?: string;
-        /** What the program consists of; rendered in parentheses. */
         includes: string;
       }
     >;
@@ -48,7 +47,6 @@ export type Dictionary = {
     breast: string;
     prevPhoto: string;
     nextPhoto: string;
-    /** "{n}" is the photo number, "{total}" the number of photos. */
     photoOf: string;
     names: Record<GirlId, string>;
   };
@@ -58,15 +56,34 @@ export type Dictionary = {
     priceFrom: string;
     prevPhoto: string;
     nextPhoto: string;
-    /** "{n}" is the photo number. */
     showPhoto: string;
-    /** "{name}" and "{n}". */
     interior: string;
     items: Record<SalonId, { body: string; address: string; metro: string }>;
   };
+  vacancies: {
+    meta: { title: string; description: string };
+    eyebrow: string;
+    title: string;
+    intro: string;
+    form: {
+      labels: Record<ApplicationField, string>;
+      placeholders: Record<"name" | "phone" | "email" | "role" | "about", string>;
+      optional: string;
+      submit: string;
+      sending: string;
+    };
+    errors: {
+      required: string;
+      phone: string;
+      email: string;
+      consent: string;
+      tooLong: string;
+      send: string;
+    };
+    success: { title: string; text: string; again: string };
+  };
   widget: { open: string; close: string; call: string };
   footer: {
-    /** "{year}" is the current year. */
     disclaimer: string;
     nav: string;
     adults: string;

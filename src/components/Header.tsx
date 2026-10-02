@@ -2,9 +2,9 @@
 
 import { Menu, X } from "@lucide/icons";
 import { useEffect, useRef, useState } from "react";
-import { NAV_LINKS, PHONE_DISPLAY, PHONE_HREF } from "@/data/contacts";
+import { navLinks, PHONE_DISPLAY, PHONE_HREF } from "@/data/contacts";
 import type { Locale } from "@/i18n/config";
-import type { Dictionary } from "@/i18n/types";
+import type { Dictionary, NavKey } from "@/i18n/types";
 import { ButtonLink } from "./Button";
 import { Icon } from "./icons/Icon";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -18,9 +18,11 @@ type Props = {
   brand: Dictionary["brand"];
   nav: Dictionary["nav"];
   labels: Dictionary["header"];
+  current?: NavKey;
 };
 
-export function Header({ locale, brand, nav, labels }: Props) {
+export function Header({ locale, brand, nav, labels, current }: Props) {
+  const links = navLinks(locale);
   const [isOpen, setOpen] = useState(false);
   const openButton = useRef<HTMLButtonElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -64,11 +66,12 @@ export function Header({ locale, brand, nav, labels }: Props) {
         aria-label={labels.mainNav}
         className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-foreground/15 bg-[#180a0c]/55 p-1 backdrop-blur-lg xl:flex"
       >
-        {NAV_LINKS.map((link) => (
+        {links.map((link) => (
           <a
             key={link.key}
             href={link.href}
-            className="rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-foreground/75 transition-colors hover:bg-foreground/10 hover:text-foreground 2xl:px-4"
+            aria-current={link.key === current ? "page" : undefined}
+            className="rounded-full px-3 py-2 text-[12px] font-semibold uppercase tracking-[0.08em] text-foreground/75 transition-colors hover:bg-foreground/10 hover:text-foreground aria-[current=page]:bg-foreground/10 aria-[current=page]:text-accent-soft 2xl:px-4"
           >
             {nav[link.key]}
           </a>
@@ -130,13 +133,14 @@ export function Header({ locale, brand, nav, labels }: Props) {
         </div>
 
         <nav className="my-auto flex flex-col gap-5 py-10">
-          {NAV_LINKS.map((link, i) => (
+          {links.map((link, i) => (
             <a
               key={link.key}
               href={link.href}
               onClick={() => setOpen(false)}
+              aria-current={link.key === current ? "page" : undefined}
               style={itemStyle(i)}
-              className={`font-display text-4xl font-bold hover:text-accent-soft md:text-5xl ${ITEM_BASE} ${itemState}`}
+              className={`font-display text-4xl font-bold hover:text-accent-soft aria-[current=page]:text-accent-soft md:text-5xl ${ITEM_BASE} ${itemState}`}
             >
               {nav[link.key]}
             </a>
@@ -144,7 +148,7 @@ export function Header({ locale, brand, nav, labels }: Props) {
         </nav>
 
         <div
-          style={itemStyle(NAV_LINKS.length)}
+          style={itemStyle(links.length)}
           className={`flex flex-wrap items-center gap-5 ${ITEM_BASE} ${itemState}`}
         >
           <a

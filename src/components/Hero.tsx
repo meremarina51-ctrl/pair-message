@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NAV_LINKS, WHATSAPP_HREF } from "@/data/contacts";
+import { navLinks, WHATSAPP_HREF } from "@/data/contacts";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { ButtonLink } from "./Button";
@@ -52,7 +52,7 @@ export function Hero({ locale, dict }: Props) {
         aria-label={hero.sectionsNav}
         className="absolute bottom-10 left-12 z-10 hidden items-center gap-4.5 md:flex"
       >
-        {NAV_LINKS.map((link, i) => (
+        {navLinks(locale).map((link, i) => (
           <a
             key={link.key}
             href={link.href}

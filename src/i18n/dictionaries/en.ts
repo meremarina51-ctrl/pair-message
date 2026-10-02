@@ -16,6 +16,7 @@ export const en: Dictionary = {
     programs: "Programs",
     girls: "Girls",
     salons: "Our salons",
+    vacancies: "Careers",
     book: "Book",
   },
   common: { orderProgram: "Order a program" },
@@ -142,6 +143,50 @@ export const en: Dictionary = {
         address: "Krylatskaya St., 30, bldg 1",
         metro: "Mnyovniki metro station",
       },
+    },
+  },
+  vacancies: {
+    meta: {
+      title: "Careers — Couples Massage",
+      description:
+        "Jobs at massage salons in Moscow. Leave an application and we will get in touch to tell you about the terms.",
+    },
+    eyebrow: "Work with us",
+    title: "Careers",
+    intro:
+      "We are looking for massage therapists and administrators for our Moscow salons. Leave an application and we will get in touch, tell you about the terms and answer your questions.",
+    form: {
+      labels: {
+        name: "Name",
+        phone: "Phone",
+        email: "Email",
+        role: "Role you are interested in",
+        about: "Additional information",
+        consent: "I agree to the terms of personal data processing and the privacy policy",
+      },
+      placeholders: {
+        name: "How should we address you",
+        phone: "+7 900 000-00-00",
+        email: "you@example.com",
+        role: "E.g. massage therapist",
+        about: "Experience, preferred schedule, best time to call",
+      },
+      optional: "optional",
+      submit: "Send application",
+      sending: "Sending…",
+    },
+    errors: {
+      required: "Please fill in this field",
+      phone: "Please enter the full phone number",
+      email: "Please check the email address",
+      consent: "Your consent to data processing is required",
+      tooLong: "The text is too long",
+      send: "We couldn't send your application. Please try again or call us.",
+    },
+    success: {
+      title: "Application sent",
+      text: "Thank you! We will get in touch with you shortly.",
+      again: "Send another one",
     },
   },
   widget: { open: "Contact us", close: "Close", call: "Call us" },

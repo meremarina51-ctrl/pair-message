@@ -1,9 +1,10 @@
-import { NAV_LINKS } from "@/data/contacts";
+import { navLinks } from "@/data/contacts";
+import type { Locale } from "@/i18n/config";
 import { fill } from "@/i18n/format";
 import type { Dictionary } from "@/i18n/types";
 import { Logo } from "./Logo";
 
-export function Footer({ dict }: { dict: Dictionary }) {
+export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const { footer } = dict;
 
   return (
@@ -18,7 +19,7 @@ export function Footer({ dict }: { dict: Dictionary }) {
           </p>
         </div>
         <nav aria-label={footer.nav} className="flex flex-col gap-2.5">
-          {NAV_LINKS.map((link) => (
+          {navLinks(locale).map((link) => (
             <a
               key={link.key}
               href={link.href}

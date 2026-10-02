@@ -22,7 +22,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Girls locale={lang} dict={dict} />
         <Salons locale={lang} dict={dict} />
       </main>
-      <Footer dict={dict} />
+      <Footer locale={lang} dict={dict} />
       <FloatingContact labels={dict.widget} />
     </>
   );
